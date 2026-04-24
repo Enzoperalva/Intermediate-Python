@@ -1,0 +1,1 @@
+print(f'Este módulo é o {__name__}')
