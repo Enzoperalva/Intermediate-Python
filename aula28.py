@@ -1,7 +1,5 @@
-b = 'Peravla'
-def func():
-    a = 'enzo'
-    print(vars())
+def somar(x:float, y:float) -> int:
+    return x + y
 
-print(dir(print))
-func()
+a = somar
+print(a(1.4, 3))
