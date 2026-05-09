@@ -1,13 +1,3 @@
-def union(first_list, second_list):
-    list_zip = []
-    for item in zip(first_list, second_list):
-        list_zip.append(item)
-    return list_zip
-    
-    
-# test = union(['Salvador', 'Ubatuba', 'Belo horizonte', 'Rio de janeo', 'Campo formoso'], ['BA', 'SP', 'MG', 'RJ'])
-# print(test)
-
 def union_primitive(first_list: list, second_list: list) -> list:
     list_zip = []
     cont = 0
@@ -37,19 +27,14 @@ def union_primitive(first_list: list, second_list: list) -> list:
         return list_zip
         
 
-# test = union_primitive(['Salvador', 'Ubatuba', 'Belo horizonte'], ['BA', 'SP', 'MG'])
-# print(test)
-
-def uniao(lista1, lista2):
-    intervalo = min(len(lista1), len(lista2))
-    lista_zippada = [
-        (lista1[item], lista2[item]) 
-        for item in range(intervalo)
+def union(first_list: list, second_list: list) -> list:
+    interval = min(len(first_list), len(second_list))
+    list_zip = [
+        (first_list[item], second_list[item]) 
+        for item in range(interval)
     ]
-    # for item in range(intervalo):
-    #     lista_zippada.append((lista1[item], lista2[item]))
     
-    return lista_zippada
+    return list_zip
 
-teste = uniao(['Salvador', 'Ubatuba', 'Belo horizonte'], ['BA', 'SP', 'MG', 'RJ'])
-print(teste)
+test = union(['Salvador', 'Ubatuba', 'Belo horizonte'], ['BA', 'SP', 'MG', 'RJ'])
+print(test)
