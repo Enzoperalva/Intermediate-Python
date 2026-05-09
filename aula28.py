@@ -27,7 +27,7 @@ def union_primitive(first_list: list, second_list: list) -> list:
         return list_zip
         
 
-def union(first_list: list, second_list: list) -> list:
+def zipper (first_list: list, second_list: list) -> list:
     interval_max = min(len(first_list), len(second_list))
     list_zip = [
         (first_list[item], second_list[item]) 
@@ -36,5 +36,5 @@ def union(first_list: list, second_list: list) -> list:
     
     return list_zip
 
-test = union(['Salvador', 'Ubatuba', 'Belo horizonte'], ['BA', 'SP', 'MG', 'RJ'])
+test = zipper(['Salvador', 'Ubatuba', 'Belo horizonte'], ['BA', 'SP', 'MG', 'RJ'])
 print(test)
