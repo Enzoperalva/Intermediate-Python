@@ -28,10 +28,10 @@ def union_primitive(first_list: list, second_list: list) -> list:
         
 
 def union(first_list: list, second_list: list) -> list:
-    interval = min(len(first_list), len(second_list))
+    interval_max = min(len(first_list), len(second_list))
     list_zip = [
         (first_list[item], second_list[item]) 
-        for item in range(interval)
+        for item in range(interval_max)
     ]
     
     return list_zip
