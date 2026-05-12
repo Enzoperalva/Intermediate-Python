@@ -1,21 +1,9 @@
-import itertools as it
+import requests
+import json
+from time import sleep
 
-compras = [
-    'maçã',
-    'maçã',
-    'banana',
-    'banana',
-    'banana',
-    'leite',
-    'leite',
-    'pão',
-    'maçã',
-    'maçã'
-]
+informacoes = '{"nome": "Ryan"}'
 
-ordem_compras = it.groupby(compras)
-for chave, produtos in ordem_compras:
-    cont = 0
-    for produto in produtos:
-        cont += 1
-    print(f'{chave} -> {cont}')
+# requisicao = requests.get('https://teste-da7e2-default-rtdb.firebaseio.com/.json')
+requisicao2 = requests.delete('https://teste-da7e2-default-rtdb.firebaseio.com/1/nome.json' )
+print(requisicao2.json())
