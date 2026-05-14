@@ -1,22 +1,37 @@
-from itertools import groupby
+from functools import reduce
 
-palavras = [
-    'amor',
-    'avião',
-    'banana',
-    'bola',
-    'casa',
-    'carro',
-    'dado',
-    'dinheiro',
-    'elefante',
+pessoas = [
+    {'nome': 'Ana', 'idade': 17},
+    {'nome': 'João', 'idade': 22},
+    {'nome': 'Maria', 'idade': 15},
+    {'nome': 'Pedro', 'idade': 30},
+    {'nome': 'Lucas', 'idade': 19},
 ]
 
-organization = sorted(palavras, key=lambda p: p[0])
-grup = groupby(organization, key= lambda p: p[0])
+def max_age(pessoa):
+    if pessoa['idade'] >= 18:
+        return pessoa
 
-for chave, valor in grup:
-    print(chave + ':')
-    for item in valor: 
-        print(item)
-    print()
+def ages(pessoa):
+    return pessoa['idade']
+
+def my_sum(acc, value):
+    acc += value
+    return acc    
+
+filtrando = filter(
+    max_age,
+    pessoas
+)
+
+mapeando = map(
+    ages,
+    filtrando
+)
+
+reduzindo = reduce(
+    my_sum,
+    mapeando
+)
+
+print(reduzindo)
