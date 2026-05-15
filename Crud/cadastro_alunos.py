@@ -39,7 +39,7 @@ while True:
                     "idade": idade
                 }
         try:
-            with open('alunos.json', 'r', encoding='utf-8') as arquivo:
+            with open('/Crud/alunos.json', 'r', encoding='utf-8') as arquivo:
                 conteudo = arquivo.read()
                 if not conteudo:
                     aluno_cadastrado = []
