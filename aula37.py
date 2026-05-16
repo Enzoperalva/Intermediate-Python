@@ -1,133 +1,79 @@
-# import time, os
-# from rich import print
-
-# tasks = []
-# log = []
-
-# while True:
-#     try:
-#         print('1 - Listar \n' \
-#         '2 - Desfazer\n' \
-#         '3 - Refazer\n' \
-#         '4 - Limpar terminal\n' \
-#         '5 - Sair')
-#         opc = input('Digite uma tarefa ou comando: ')
-#         print()
-    
-#     except ValueError:
-#         print('[red]ERRO! Escolha um valor válido.[/]')
-#         time.sleep(1)
-#         print()
-#         continue
-    
-#     if not opc in '12345':
-#         tasks.append(opc)
-#         print(f'Task adicionada: {opc}')
-#         time.sleep(1)
-#         print()
-#         continue
-
-#     if opc == '1':
-#         if not tasks:
-#             print('Não há nada para listar!')
-#             time.sleep(1)
-#             print()
-#             continue
-
-#         for item in tasks:
-#             print(item)
-#         time.sleep(1)
-#         print()
-    
-#     if opc == '2':
-#         if not tasks:
-#             print('Não há nada para desfazer.')
-#             time.sleep(1)
-#             print()
-#             continue
-#         item_apagado = tasks.pop()
-#         print(f'Item apagado: {item_apagado}')
-#         log.append(item_apagado)
-#         for item in tasks:
-#             print(item)
-#         time.sleep(1)
-#         print()
-    
-#     if opc == '3':
-#         if not log:
-#             print('Não há nada para refazer!')
-#             print()
-#             time.sleep(1)
-#             continue
-
-#         print(f'Refazendo tarefa: {log[-1]}')
-#         tasks.append(log[-1])
-#         log.pop()
-#         print()
-#         time.sleep(1)
-
-#     if opc == '4':
-#         os.system('clear')
-#         time.sleep(1)
-
-#     if opc == '5':
-#         print('Obrigado por usar nosso software!')
-#         time.sleep(1)
-#         break
-    
-#Solucao professor
-def listar(tarefas):
-    print()
-    if not tarefas:
-        print('Nenhuma tarefa para listar!')
-        return
-    
-    for tarefa in tarefas:
-        print(f'\t{tarefa}')
-    print()
-
-
-def desfazer(tarefas, tarefas_desfazer):
-    if not tarefas:
-        print('Não há tarefas para desfazer')
-        return
-    tarefa = tarefas.pop()
-    tarefas_desfazer.append(tarefa)
-
-
-def refazer(tarefas, tarefas_refazer):
-    if not tarefas_refazer:
-        print('Não há tarefas para refazer!')
-        return
-    tarefa = tarefas_refazer.pop()
-    tarefas.append(tarefa)
-
-
-def adicionar(tarefa, lista_tarefas):
-    if not tarefa.strip():
-        print('Você não digitou nenhuma tarefa.')
-        return
-    lista_tarefas.append(tarefa)
-
+import time, os
+from rich import print
+import json
 
 tasks = []
-tasks_log = []
+log = []
 
 while True:
-    print('Comando: listar, desfazer e refazer')
-    tarefa = input('Digite uma tarefa ou comando: ')
-
-    if tarefa == 'listar':
-        listar(tasks)
+    try:
+        print('1 - Listar \n' \
+        '2 - Desfazer\n' \
+        '3 - Refazer\n' \
+        '4 - Limpar terminal\n' \
+        '5 - Sair')
+        opc = input('Digite uma tarefa ou comando: ')
+        print()
     
-    elif tarefa == 'desfazer':
-        desfazer(tasks, tasks_log)
+    except ValueError:
+        print('[red]ERRO! Escolha um valor válido.[/]')
+        time.sleep(1)
+        print()
+        continue
+    
+    if not opc in '12345':
+        with open('tasks.json', 'a', encoding='utf-8') as arq:
+            json.dump(opc, arq, indent=2)
+        tasks.append(opc)
+        print(f'Task adicionada: {opc}')
+        time.sleep(1)
+        print()
         continue
 
-    elif tarefa == 'refazer':
-        refazer(tasks, tasks_log)
-        continue
+    if opc == '1':
+        if not tasks:
+            print('Não há nada para listar!')
+            time.sleep(1)
+            print()
+            continue
+        for item in tasks:
+            print(item)
+        time.sleep(1)
+        print()
+    
+    if opc == '2':
+        if not tasks:
+            print('Não há nada para desfazer.')
+            time.sleep(1)
+            print()
+            continue
+        item_apagado = tasks.pop()
+        print(f'Item apagado: {item_apagado}')
+        log.append(item_apagado)
+        for item in tasks:
+            print(item)
+        time.sleep(1)
+        print()
+    
+    if opc == '3':
+        if not log:
+            print('Não há nada para refazer!')
+            print()
+            time.sleep(1)
+            continue
 
-    else:
-        adicionar(tarefa, tasks)
-        continue
+        print(f'Refazendo tarefa: {log[-1]}')
+        tasks.append(log[-1])
+        log.pop()
+        print()
+        time.sleep(1)
+
+    if opc == '4':
+        os.system('clear')
+        time.sleep(1)
+
+    if opc == '5':
+        print('Obrigado por usar nosso software!')
+        time.sleep(1)
+        break
+    
