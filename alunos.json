@@ -1,18 +1,18 @@
 [
     {
-        "nome": "Enzo",
-        "idade": 19
+        "name": "Joao",
+        "age": 20
+    },
+    {
+        "name": "Jhonny",
+        "age": 18
     },
     {
         "name": "Pedro",
         "age": 290
     },
     {
-        "name": "Joao",
-        "age": 400
-    },
-    {
-        "name": "Joao",
-        "age": 900
+        "name": "Jujuba",
+        "age": 20
     }
 ]
