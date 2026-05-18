@@ -22,8 +22,6 @@ while True:
         continue
     
     if not opc in '12345':
-        with open('tasks.json', 'a', encoding='utf-8') as arq:
-            json.dump(opc, arq, indent=2)
         tasks.append(opc)
         print(f'Task adicionada: {opc}')
         time.sleep(1)
