@@ -1,8 +1,11 @@
 from rich import print
 from time import sleep
 import json
+import core
 
 
+
+ARCHIVE_LOG_STUDENT = 'alunos.json'
 while True:
     print('[blue]1 -[/] [purple]Criar usuário[/] \n'
         '[blue]2 -[/] [purple]Listar usuários[/] \n'
@@ -28,31 +31,12 @@ while True:
             sleep(1)
             continue 
         try:
-            idade = int(input('Idade aluno:'))
+            age = int(input('Idade aluno:'))
         except ValueError:
             print('[red]ERRO! Usuário digitou um valor inválido.[/]')
             sleep(1)
             continue
-
-        novo_aluno ={
-                    "nome": name,
-                    "idade": idade
-                }
-        try:
-            with open('/Crud/alunos.json', 'r', encoding='utf-8') as arquivo:
-                conteudo = arquivo.read()
-                if not conteudo:
-                    aluno_cadastrado = []
-                else:
-                    aluno_cadastrado = json.loads(conteudo)
-        except FileNotFoundError:
-            aluno_cadastrado = []
-
-        aluno_cadastrado.append(novo_aluno)
-        with open('alunos.json', 'w+') as arquivo:
-            json.dump(aluno_cadastrado, arquivo, indent=4, ensure_ascii=False)
-        print('[green]Aluno cadastrado![/]')
-        print()
+        core.add_student(name, age, ARCHIVE_LOG_STUDENT)
     
     if option == 2:
         try:    
