@@ -22,6 +22,6 @@ opcoes = {
 }
 try:
     dados = opcoes.get(opc)
-    print(dados)
+    print(dados())
 except Exception as e:
     print('Erro inesperado', e)
