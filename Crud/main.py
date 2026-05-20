@@ -1,6 +1,6 @@
 from rich import print
 from time import sleep
-import core
+import core, my_file, os
 
 
 ARCHIVE_LOG_STUDENT = 'alunos.json'
@@ -15,7 +15,7 @@ while True:
     try:
         option = int(input('Opção: '))
         print()
-    except KeyboardInterrupt:
+    except KeyboardInterrupt:   
         print('\n[red]Usuário forçou saida![/]')
     except ValueError:
         print('[red]ERRO! Usuário digitou um valor inválido.[/]')
@@ -23,9 +23,9 @@ while True:
         continue
     options = {
         1: lambda: core.add_student(ARCHIVE_LOG_STUDENT),
-        2: lambda: core.head_archive(ARCHIVE_LOG_STUDENT),
-        3: lambda: core.att_student(ARCHIVE_LOG_STUDENT),
-        4: lambda: core.delete_student(ARCHIVE_LOG_STUDENT)
+        2: lambda: my_file.head_file(ARCHIVE_LOG_STUDENT),
+        3: lambda: my_file.att_student(ARCHIVE_LOG_STUDENT),
+        4: lambda: my_file.delete_student(ARCHIVE_LOG_STUDENT)
     }
 
     data = options.get(option)
@@ -33,4 +33,6 @@ while True:
         data()
     else:
         print('[cyan]Obrigado por usar nosso pograma<3[/]')
+        sleep(1)
+        os.system('clear')
         break
