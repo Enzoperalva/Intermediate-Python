@@ -1,46 +1,26 @@
 [
     {
-        "name": "Joao",
+        "name": "Pedro",
+        "age": 21
+    },
+    {
+        "name": "Pp",
+        "age": 14
+    },
+    {
+        "name": "Kajfha",
         "age": 20
     },
     {
-        "name": "Jhonny",
-        "age": 18
+        "name": "Jhbfq",
+        "age": 8
+    },
+    {
+        "name": "Peca",
+        "age": 19
     },
     {
         "name": "Pedro",
-        "age": 290
-    },
-    {
-        "name": "Jujuba",
         "age": 20
-    },
-    {
-        "name": "Jpido",
-        "age": 1908
-    },
-    {
-        "name": "Pd",
-        "age": 20
-    },
-    {
-        "name": "Enzo teste",
-        "age": 20
-    },
-    {
-        "name": "Pedrinho",
-        "age": 29
-    },
-    {
-        "name": "Enzo",
-        "age": 72
-    },
-    {
-        "name": "Pedrinho",
-        "age": 4
-    },
-    {
-        "name": "151",
-        "age": 12
     }
 ]
