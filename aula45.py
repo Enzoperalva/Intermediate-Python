@@ -15,5 +15,9 @@ p2 =  Pessoa('Marcos', 'Benevoli')
 p3 =  Pessoa('Orteu', 'Canadoli')
 
 data = [p1.__dict__, p2.__dict__, p3.__dict__]
-with open(CAMINHO_ARQUIVO, 'w', encoding='utf-8') as arq:
-    json.dump(data, arq, indent=4, ensure_ascii=False)
+def fazer_dump():
+    with open(CAMINHO_ARQUIVO, 'w', encoding='utf-8') as arq:
+        json.dump(data, arq, indent=4, ensure_ascii=False)
+
+if __name__ == '__main__':
+    fazer_dump()
