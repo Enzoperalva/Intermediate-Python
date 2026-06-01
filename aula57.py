@@ -1,16 +1,16 @@
 class Biblioteca:
-    def __init__(self, nome, colecao: list) -> None:
+    def __init__(self, nome) -> None:
         self._nome = nome
-        self._colecao = colecao
+        self._colecao = []
 
-    @property
-    def colecao(self):
-        return self._colecao
+    def adicionar_livro(self, livro):
+        self._colecao.append(livro)
+        return "Livro adicionado!"
     
-    @colecao.setter
-    def colecao(self, valor: list):
-        self._colecao = valor
-
+    def listar_livros(self):
+        for livro in self._colecao:
+            print(livro.inf_livro())
+            print("-" * 20)
 
 class Livro:
     def __init__(self, titulo, autor):
@@ -19,9 +19,8 @@ class Livro:
 
     def inf_livro(self):
         return f"Titulo: {self.titulo}\nAutor: {self.autor}"
-    
-biblioteca = Biblioteca("Biblioteca Municipal", ["A Megera Domada", "William Shakespeare"])
-livro = Livro("Recordações do escrivão Isaias Caminha", "Lima Barreto")
-biblioteca.colecao = livro
-print(livro.inf_livro())
-print()
+
+biblioteca = Biblioteca("Biblioteca Municipal")
+livro1 = Livro("Recordações do escrivão Isaias Caminha", "Lima Barreto")
+biblioteca.adicionar_livro(livro1)
+biblioteca.listar_livros()
