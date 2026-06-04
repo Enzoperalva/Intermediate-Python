@@ -54,9 +54,6 @@ class Computador:
                 "✓ Programação\n"
                 "✓ Jogos")
         
-
-
-
 class Processador:
     def __init__(self, processador, nucleos):
         self.processador = processador 
