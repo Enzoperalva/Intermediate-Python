@@ -1,28 +1,13 @@
-# class MinhaString(str):
-#     def upper(self):
-#         print('chamou UPPER')
-#         return super().upper( )
-    
-# string = MinhaString('Enzo')
-# print(string.upper())
+class Animal:
+    def __init__(self, nome):
+        self.nome = nome
 
-class A:
-    atributo_a = 'valor a'
-    def metodo(self):
-        print('A')
+    def fazer_som(self):
+        print(self.nome+':', 'Som genérico!')
 
-class B(A):
-    atributo_b = 'valor b'
-    def metodo(self):
-        print('B')
+class Cachorro(Animal):
+    def fazer_som(self):
+        print(self.nome, "Au Au!")
 
-class C(B):
-    atributo_c = 'valor c'
-    def metodo(self):
-        print('C')
-
-c = C()
-print(c.atributo_a)
-print(c.atributo_b)
-print(c.atributo_c)
-b = B()
+animal1 = Cachorro("Rex")
+animal1.fazer_som()
